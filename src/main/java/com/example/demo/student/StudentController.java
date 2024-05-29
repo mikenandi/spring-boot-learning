@@ -1,6 +1,6 @@
 package com.example.demo.student;
 
-import jakarta.servlet.annotation.HttpConstraint;
+import com.example.demo.models.Student;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
