@@ -1,30 +1,25 @@
-package com.example.demo.student;
+package com.example.demo.models;
 
-import com.example.demo.school.School;
-import com.example.demo.studentProfile.StudentProfile;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
-
-@Getter
-@Setter
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Data
 @NoArgsConstructor
+@SuperBuilder
 @Entity
 @Table
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+public class Student  extends BaseEntity{
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    private UUID id;
 
     @Column(length = 40)
     private String firstname;
@@ -47,13 +42,13 @@ public class Student {
     @Column(length = 100)
     private String city;
 
-    @CreationTimestamp
-    @Column(nullable = false, updatable = false)
-    private Date createdAt;
+//    @CreationTimestamp
+//    @Column(nullable = false, updatable = false)
+//    private Date createdAt;
 
-    @UpdateTimestamp
-    @Column()
-    private LocalDateTime updatedAt;
+//    @UpdateTimestamp
+//    @Column()
+//    private LocalDateTime updatedAt;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "student")
     private StudentProfile studentProfile;
